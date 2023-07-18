@@ -1,0 +1,45 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "asset",
+      "value": {
+        "name": {
+          "defaultValue": "Dispatcher Processed Folder",
+          "isExpression": false
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      },
+      "metadata": {}
+    },
+    {
+      "resource": "asset",
+      "value": {
+        "name": {
+          "defaultValue": "PCC_Credential",
+          "isExpression": false
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      },
+      "metadata": {}
+    },
+    {
+      "resource": "asset",
+      "value": {
+        "name": {
+          "defaultValue": "row(\"Asset\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "defaultValue": "row(\"OrchestratorAssetFolder\").ToString",
+          "isExpression": false
+        }
+      },
+      "metadata": {}
+    }
+  ]
+}
