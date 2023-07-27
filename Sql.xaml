@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sql" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1155,3420" sap2010:WorkflowViewState.IdRef="Sql_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:ea="clr-namespace:ExcelConversionActivity.Activities;assembly=ExcelConversionActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sql" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1155,2692" sap2010:WorkflowViewState.IdRef="Sql_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:ea="clr-namespace:ExcelConversionActivity.Activities;assembly=ExcelConversionActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
       <x:String>System.Activities</x:String>
@@ -73,7 +73,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sql" sap:VirtualizedContainerService.HintSize="418,2355" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sql" sap:VirtualizedContainerService.HintSize="418,2427" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="Reportdb" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt" />
@@ -109,7 +109,7 @@
         <InArgument x:TypeArguments="x:String">["Z:\Architechture Changes 10_11\Config\Config_Batch.xlsx"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="376,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="InitAllSettings.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="376,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="InitAllSettings.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">[ConfigFilepath]</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
@@ -118,7 +118,7 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
@@ -217,7 +217,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Sequence sap:VirtualizedContainerService.HintSize="376,1160" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence sap:VirtualizedContainerService.HintSize="376,1293" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="completeFilePath" />
       </Sequence.Variables>
@@ -247,6 +247,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ExecuteQuery>
       <ui:DatabaseDisconnect DatabaseConnection="[msDB]" DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Report loaded&quot;]" />
       <Delay DisplayName="Delay 15 seconds" Duration="00:00:30" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
       <ui:DatabaseConnect DisplayName="connect to Report" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=HO-DBDev-16;Initial Catalog=Reporting;Persist Security Info=True;User ID=MdsBot_svc;Password='^U5Urs:5fs&quot;*';Encrypt=False" DatabaseConnection="[Reportdb]">
         <sap:WorkflowViewStateService.ViewState>
@@ -258,12 +259,8 @@
       </ui:DatabaseConnect>
       <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="StoredProcedure" DataTable="[dt]" DisplayName="Get Emar report" ExistingDbConnection="[Reportdb]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="dbo.emar_medication_proc">
         <ui:ExecuteQuery.Parameters>
-          <InArgument x:TypeArguments="x:String" x:Key="@start">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StartDate.ToString(&quot;MM/dd/yyyy&quot;)" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="@end">
-            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="EndDate.ToString(&quot;MM/dd/yyyy&quot;)" />
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@start">[StartDate.ToString("MM/dd/yyyy")]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="@end">[EndDate.ToString("MM/dd/yyyy")]</InArgument>
         </ui:ExecuteQuery.Parameters>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">

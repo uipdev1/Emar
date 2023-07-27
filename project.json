@@ -5,6 +5,7 @@
   "dependencies": {
     "DataBase_Library": "[1.0.2]",
     "ExcelConverter.Activities": "[1.0.0]",
+    "GetEmarData_library": "[1.0.2]",
     "Restore.Page": "[1.0.6]",
     "UiPath.Database.Activities": "[1.7.1]",
     "UiPath.Excel.Activities": "2.12.3",
